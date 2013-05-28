@@ -18,10 +18,7 @@ class AppSettings(BaseSettings):
         self.isolated = isolated
         self._changed = {}
         self._added = []
-        try:
-            super(AppSettings, self).__init__(django_settings.SETTINGS_MODULE, **kwargs)
-        except TypeError:
-            super(AppSettings, self).__init__(*args, **kwargs)
+        super(AppSettings, self).__init__(*args, **kwargs)
 
     def get_isolated(self):
         return self._isolated
